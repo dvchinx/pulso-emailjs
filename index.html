@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulso · Newsletter de startups</title>
+<meta name="description" content="Suscríbete a Pulso: cada martes, 5 minutos con lo mejor del ecosistema startup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14110F;
+    --muted: #6B625C;
+    --bg: #F4EFE9;
+    --card: #FFFFFF;
+    --line: #E8E1D9;
+    --accent: #FF5A36;
+    --accent-dark: #E8441F;
+    --ok: #1E8E5A;
+    --err: #C62828;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+  header, footer { padding: 20px 16px; }
+  .wrap { max-width: 1040px; margin: 0 auto; width: 100%; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; text-decoration: none; color: var(--ink); }
+  .logo i { width: 32px; height: 32px; border-radius: 9px; background: var(--accent); color: #fff; font-style: normal; display: grid; place-items: center; font-size: 17px; }
+  .logo b { color: var(--accent); }
+
+  main { flex: 1; display: flex; align-items: center; padding: 24px 16px 56px; }
+  .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -1.5px; margin: 0 0 18px; }
+  h1 span { color: var(--accent); }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0 0 32px; max-width: 520px; }
+
+  form { display: flex; gap: 10px; max-width: 500px; }
+  label.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  input[type="email"] {
+    flex: 1; min-width: 0;
+    font: inherit; font-size: 16px;
+    padding: 16px 18px;
+    border: 1.5px solid var(--line); border-radius: 12px;
+    background: var(--card); color: var(--ink);
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  input[type="email"]:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255, 90, 54, .15); }
+  button {
+    font: inherit; font-size: 16px; font-weight: 700;
+    padding: 16px 24px; border: 0; border-radius: 12px;
+    background: var(--accent); color: #fff; cursor: pointer;
+    transition: background .15s, transform .05s;
+    white-space: nowrap;
+  }
+  button:hover { background: var(--accent-dark); }
+  button:active { transform: translateY(1px); }
+  button:disabled { opacity: .65; cursor: progress; }
+
+  .msg { margin-top: 14px; font-size: 15px; min-height: 22px; }
+  .msg.ok { color: var(--ok); }
+  .msg.err { color: var(--err); }
+  .fine { margin-top: 18px; font-size: 13px; color: var(--muted); }
+  .fine a { color: var(--muted); }
+
+  .preview {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    overflow: hidden; box-shadow: 0 30px 60px -30px rgba(20, 17, 15, .35);
+    transform: rotate(1.5deg);
+  }
+  .preview .bar { background: var(--ink); padding: 18px; text-align: center; color: #fff; font-weight: 800; }
+  .preview .bar b { color: var(--accent); }
+  .preview .body { padding: 26px; }
+  .preview .tag { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; color: var(--accent); text-transform: uppercase; }
+  .preview h3 { margin: 8px 0 10px; font-size: 20px; }
+  .preview p { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+  .preview .line { height: 10px; border-radius: 5px; background: #F1EBE5; margin-bottom: 10px; }
+  .preview .cta { display: inline-block; margin-top: 8px; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px; padding: 11px 18px; border-radius: 9px; }
+  .preview .foot { border-top: 1px solid var(--line); background: #FAF6F2; padding: 14px; text-align: center; font-size: 11px; color: var(--muted); }
+
+  footer { color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .preview { transform: none; }
+  }
+  @media (max-width: 480px) {
+    form { flex-direction: column; }
+    button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="./"><i>P</i>pulso<b>.</b></a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <section>
+      <span class="eyebrow">Newsletter semanal · Gratis</span>
+      <h1>El ecosistema startup, en <span>5 minutos</span> cada martes.</h1>
+      <p class="lead">Tendencias, herramientas y casos reales de growth para fundadores, diseñadores y desarrolladores en Latinoamérica.</p>
+
+      <form id="subscribe-form" novalidate>
+        <label class="sr" for="user_email">Correo electrónico</label>
+        <input type="email" id="user_email" name="user_email" placeholder="tu@correo.com" autocomplete="email" required>
+        <button type="submit" id="submit-btn">Suscribirme</button>
+      </form>
+      <div id="msg" class="msg" role="status" aria-live="polite"></div>
+      <p class="fine">Sin spam. Puedes darte de baja cuando quieras. · <a href="email-template.html" target="_blank">Ver el correo de bienvenida</a></p>
+    </section>
+
+    <aside class="preview" aria-hidden="true">
+      <div class="bar">pulso<b>.</b></div>
+      <div class="body">
+        <div class="tag">Suscripción confirmada</div>
+        <h3>¡Hola! Ya eres parte de Pulso 👋</h3>
+        <p>Gracias por suscribirte. Cada martes recibirás lo mejor del mundo startup.</p>
+        <div class="line" style="width: 92%"></div>
+        <div class="line" style="width: 78%"></div>
+        <div class="line" style="width: 85%"></div>
+        <span class="cta">Descargar mi guía gratis →</span>
+      </div>
+      <div class="foot">Pulso · Bogotá, Colombia · Cancelar suscripción</div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Pulso · Proyecto académico de Email Marketing</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+<script>
+  // ========= CONFIGURACIÓN EMAILJS (reemplaza con tus datos) =========
+  // Account > General > Public Key
+  const EMAILJS_PUBLIC_KEY  = "jrgjAxR9Ua6lbffPo";
+  // Email Services > (tu servicio de Gmail) > Service ID
+  const EMAILJS_SERVICE_ID  = "service_1s6qwnm";
+  // Email Templates > (tu plantilla) > Settings > Template ID
+  const EMAILJS_TEMPLATE_ID = "template_eex4wz5";
+  // ===================================================================
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  const form  = document.getElementById("subscribe-form");
+  const input = document.getElementById("user_email");
+  const btn   = document.getElementById("submit-btn");
+  const msg   = document.getElementById("msg");
+
+  function show(text, type) {
+    msg.textContent = text;
+    msg.className = "msg " + (type || "");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = input.value.trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      show("Escribe un correo válido, por ejemplo nombre@gmail.com", "err");
+      input.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Enviando…";
+    show("");
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        user_email: email,
+        subscribe_date: new Date().toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" }),
+        site_url: window.location.origin + window.location.pathname
+      });
+      show("¡Listo! Revisa tu bandeja de entrada (y la carpeta de spam, por si acaso).", "ok");
+      form.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      show("No pudimos enviar el correo. Intenta de nuevo en un momento.", "err");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Suscribirme";
+    }
+  });
+</script>
+</body>
+</html>
